@@ -9,7 +9,7 @@ function Input() {
         type="text"
       />
       <div className="flex gap-2 justify-center items-center">
-        <label className="font-semibold" htmlFor="priority">Priority: </label>
+        <label className="font-semibold" htmlFor="priority">Priority:</label>
         <select
           id="priority"
           className="border-2 text-white p-2 mr-2 cursor-pointer bg-green-600"

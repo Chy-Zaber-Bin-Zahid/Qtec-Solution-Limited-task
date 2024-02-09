@@ -1,4 +1,5 @@
 import { MyProvider } from "./MyContext";
+import Filter from "./components/Filter";
 import Input from "./components/Input";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
             My Todo List App
           </h1>
           <Input />
+          <Filter />
         </div>
       </main>
     </MyProvider>
