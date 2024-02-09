@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { MyProvider } from "./MyContext";
+import Input from "./components/Input";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MyProvider>
+      <main className="h-screen border-2 border-red-500 max-w-[50rem] m-auto py-10">
+        <h1 className="text-2xl text-center p-4 bg-orange-300 font-semibold">
+          My Todo List App
+        </h1>
+        <Input />
+      </main>
+    </MyProvider>
   );
 }
 
