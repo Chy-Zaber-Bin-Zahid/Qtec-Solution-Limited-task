@@ -1,10 +1,18 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 // Creating context api
 const MyContext = createContext();
 
 function MyProvider({ children }) {
-  return <MyContext.Provider value={{}}>{children}</MyContext.Provider>;
+  const [todos, setTodos] = useState([]);
+
+  console.log(todos);
+
+  return (
+    <MyContext.Provider value={{ todos, setTodos }}>
+      {children}
+    </MyContext.Provider>
+  );
 }
 
 // Custom hook

@@ -1,6 +1,15 @@
 import React from "react";
 
 function Filter() {
+  const completionOptions = [
+    "All",
+    "Low",
+    "Medium",
+    "High",
+    "Completed",
+    "Incomplete",
+  ];
+
   return (
     <section className="flex justify-between items-center gap-4 px-4 pb-4 bg-white ">
       <div className="flex justify-between items-center gap-2">
@@ -17,12 +26,11 @@ function Filter() {
           id="priority"
           className="border-2 text-white p-2 cursor-pointer bg-green-600"
         >
-          <option value="option1">All</option>
-          <option value="option2">Low</option>
-          <option value="option3">Medium</option>
-          <option value="option4">High</option>
-          <option value="option5">Completed</option>
-          <option value="option6">Incomplete</option>
+          {completionOptions.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
         </select>
       </div>
     </section>
