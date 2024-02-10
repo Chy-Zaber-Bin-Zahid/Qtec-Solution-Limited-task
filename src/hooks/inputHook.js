@@ -18,7 +18,12 @@ function useInputHook() {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    const newTodo = { text: todoText, priority: priority };
+    const newTodo = {
+      text: todoText,
+      priority: priority,
+      completed: false,
+      incomplete: true,
+    };
     setTodos([...todos, newTodo]);
     // Clear the input fields
     handleInputChange({ target: { value: "" } });

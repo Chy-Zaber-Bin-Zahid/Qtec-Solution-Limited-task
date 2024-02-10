@@ -5,11 +5,10 @@ const MyContext = createContext();
 
 function MyProvider({ children }) {
   const [todos, setTodos] = useState([]);
-
-  console.log(todos);
+  const [filter, setFilter] = useState("All");
 
   return (
-    <MyContext.Provider value={{ todos, setTodos }}>
+    <MyContext.Provider value={{ todos, setTodos, filter, setFilter }}>
       {children}
     </MyContext.Provider>
   );
