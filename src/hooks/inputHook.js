@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMyContext } from "../MyContext";
+import { v4 as uuidv4 } from 'uuid';
 
 function useInputHook() {
   const [todoText, setTodoText] = useState("");
@@ -19,8 +20,9 @@ function useInputHook() {
   const handleAddTodo = (e) => {
     e.preventDefault();
     const newTodo = {
+      id: uuidv4(),
       text: todoText,
-      priority: priority,
+      priority,
       completed: false,
       incomplete: true,
     };

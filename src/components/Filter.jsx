@@ -13,14 +13,13 @@ function Filter() {
   ];
 
   const { todos, filter } = useMyContext();
-  const { handleSelectChange } = useFilterHook();
-
-  // At least one todo is complete
-  const atLeastOneComplete = todos.some((todo) => todo.complete);
-  const completeCount = todos.filter((todo) => todo.complete).length;
-  // At least one todo is incomplete
-  const atLeastOneIncomplete = todos.some((todo) => todo.incomplete);
-  const incompleteCount = todos.filter((todo) => todo.incomplete).length;
+  const {
+    handleSelectChange,
+    atLeastOneComplete,
+    completeCount,
+    atLeastOneIncomplete,
+    incompleteCount,
+  } = useFilterHook();
 
   return (
     <section className="flex justify-between items-center gap-4 px-4 pb-4 bg-white ">
