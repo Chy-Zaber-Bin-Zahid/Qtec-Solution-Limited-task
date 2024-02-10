@@ -7,6 +7,8 @@ function MyProvider({ children }) {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("All");
 
+  console.log(todos);
+
   return (
     <MyContext.Provider value={{ todos, setTodos, filter, setFilter }}>
       {children}
