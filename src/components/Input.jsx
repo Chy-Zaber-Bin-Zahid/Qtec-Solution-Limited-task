@@ -18,7 +18,7 @@ function Input() {
       className="flex justify-between items-center gap-4 p-4 bg-white"
     >
       <input
-        className="w-full p-2 outline-none border-2 focus:border-green-600 rounded"
+        className="w-full p-2 outline-none border-2 border-green-200 focus:border-green-600 rounded"
         placeholder="Write todo list..."
         value={todoText}
         onChange={handleInputChange}
