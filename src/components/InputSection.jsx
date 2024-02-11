@@ -31,7 +31,7 @@ function Input() {
         </label>
         <select
           id="priority"
-          className="border-2 text-white p-2 mr-2 cursor-pointer bg-green-600"
+          className="border-2 text-white p-2 cursor-pointer bg-green-600"
           value={priority}
           onChange={handlePriorityChange}
         >
