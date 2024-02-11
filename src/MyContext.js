@@ -11,6 +11,7 @@ function MyProvider({ children }) {
   const [filter, setFilter] = useState("All");
   const [edit, setEdit] = useState(false);
   const [editId, setEditId] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   // Fetch tasks from local storage
@@ -60,6 +61,8 @@ function MyProvider({ children }) {
         setEdit,
         editId,
         setEditId,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       {children}

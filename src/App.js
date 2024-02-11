@@ -2,6 +2,7 @@ import { MyProvider } from "./MyContext";
 import Edit from "./components/EditSection";
 import Filter from "./components/FilterSection";
 import Input from "./components/InputSection";
+import Search from "./components/Search";
 import ShowList from "./components/ShowListSection";
 import { FcTodoList } from "react-icons/fc";
 
@@ -16,6 +17,7 @@ function App() {
           </h1>
           <Filter />
           <Input />
+          <Search />
           <ShowList />
           <Edit />
         </div>

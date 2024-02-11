@@ -1,14 +1,24 @@
 import { useMyContext } from "../MyContext";
 
 function useShowListHook() {
-  const { todos, setTodos, filter, setEdit, setEditId } = useMyContext();
+  const { todos, setTodos, filter, setEdit, setEditId, searchQuery } =
+    useMyContext();
+
+  const queryTodos = todos.filter((todo) =>
+    todo.text.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Sort todos by priority (High -> Medium -> Low)
-  const sortedTodos = todos.sort((a, b) => {
-    if (a.priority === "High") return -1;
-    if (a.priority === "Medium" && b.priority !== "High") return -1;
-    return 1;
-  });
+  const sortedTodos =
+    searchQuery.length !== 0
+      ? todos.filter((todo) =>
+          todo.text.toLowerCase().includes(searchQuery.toLowerCase())
+        ) //Search Sort
+      : todos.sort((a, b) => {
+          if (a.priority === "High") return -1;
+          if (a.priority === "Medium" && b.priority !== "High") return -1;
+          return 1;
+        });
 
   const toggleTodoCompletion = (id) => {
     const updatedTodos = todos.map((todo) =>
@@ -32,27 +42,32 @@ function useShowListHook() {
   };
 
   // Filtering todo
-  const filteredTodos = todos.filter((todo) => {
-    switch (filter) {
-      case "Low":
-      case "Medium":
-      case "High":
-        return todo.priority === filter;
-      case "Completed":
-        return todo.completed;
-      case "Incomplete":
-        return !todo.completed;
-      default:
-        return true;
-    }
-  });
-
+  const filteredTodos = todos
+    .filter((todo) => {
+      switch (filter) {
+        case "Low":
+        case "Medium":
+        case "High":
+          return todo.priority === filter;
+        case "Completed":
+          return todo.completed;
+        case "Incomplete":
+          return !todo.completed;
+        default:
+          return true;
+      }
+    })
+    .filter(
+      (todo) => todo.text.toLowerCase().includes(searchQuery.toLowerCase()) //Search filter
+    );
+  console.log(queryTodos, searchQuery);
   return {
     toggleTodoCompletion,
     sortedTodos,
     handleDeleteTodo,
     filteredTodos,
     handleEditTodo,
+    queryTodos,
   };
 }
 
