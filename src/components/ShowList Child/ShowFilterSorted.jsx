@@ -1,7 +1,10 @@
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import useShowListHook from "../../hooks/showListHook";
 
 const ShowFilterSorted = ({ todo, toggleTodoCompletion, handleDeleteTodo }) => {
+  const { handleEditTodo } = useShowListHook();
+
   return (
     <div
       className={`flex justify-between items-center ${
@@ -21,7 +24,10 @@ const ShowFilterSorted = ({ todo, toggleTodoCompletion, handleDeleteTodo }) => {
         />
         <p className="">{todo.text}</p>{" "}
       </div>
-      <FaRegEdit className="cursor-pointer text-lg hover:text-white transition-all duration-300" />
+      <FaRegEdit
+        onClick={() => handleEditTodo(todo.id)}
+        className="cursor-pointer text-lg hover:text-white transition-all duration-300"
+      />
       <MdDeleteOutline
         className="cursor-pointer text-lg hover:text-white transition-all duration-300 hover:animate-shake"
         onClick={() => handleDeleteTodo(todo.id)}

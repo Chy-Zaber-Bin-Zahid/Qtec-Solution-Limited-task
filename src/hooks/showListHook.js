@@ -1,7 +1,7 @@
 import { useMyContext } from "../MyContext";
 
 function useShowListHook() {
-  const { todos, setTodos, filter } = useMyContext();
+  const { todos, setTodos, filter, setEdit, setEditId } = useMyContext();
 
   // Sort todos by priority (High -> Medium -> Low)
   const sortedTodos = todos.sort((a, b) => {
@@ -25,6 +25,12 @@ function useShowListHook() {
     setTodos(updatedTodos);
   };
 
+  // Edit the todo
+  const handleEditTodo = (id) => {
+    setEditId(id);
+    setEdit(true);
+  };
+
   // Filtering todo
   const filteredTodos = todos.filter((todo) => {
     switch (filter) {
@@ -46,6 +52,7 @@ function useShowListHook() {
     sortedTodos,
     handleDeleteTodo,
     filteredTodos,
+    handleEditTodo,
   };
 }
 
