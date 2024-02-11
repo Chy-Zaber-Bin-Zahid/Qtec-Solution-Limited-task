@@ -17,10 +17,10 @@ function Edit() {
       <div
         className={` ${
           !edit && "hidden"
-        }  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]`}
+        }  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-md overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] max-[550px]:w-[20rem] max-[400px]:w-[15rem] max-[250px]:w-[13rem]`}
       >
-        <div className="flex justify-between items-center bg-green-600 p-2 text-white">
-          <h1 className="  font-semibold text-lg flex justify-start items-center gap-2">
+        <div className="flex justify-between items-center bg-green-600 p-2 text-white max-[400px]:text-lg">
+          <h1 className="  font-semibold text-lg flex justify-start items-center gap-2 ">
             Edit Your Todo <VscEdit />
           </h1>
           <IoMdClose
@@ -30,7 +30,7 @@ function Edit() {
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex gap-2 justify-center items-center p-2 "
+          className="flex gap-2 justify-center items-center p-2 max-[400px]:text-sm"
         >
           <input
             className="w-full px-2 py-1 outline-none border-2 border-green-200 focus:border-green-600 rounded "

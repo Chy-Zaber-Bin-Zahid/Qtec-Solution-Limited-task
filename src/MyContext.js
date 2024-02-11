@@ -11,6 +11,7 @@ function MyProvider({ children }) {
   const [filter, setFilter] = useState("All");
   const [edit, setEdit] = useState(false);
   const [editId, setEditId] = useState("");
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   // Fetch tasks from local storage
   const fetchTodosFromLocalStorage = () => {
@@ -34,6 +35,19 @@ function MyProvider({ children }) {
   useEffect(() => {
     saveTodosToLocalStorage(todos);
   }, [todos]);
+
+  // Window hight check
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowHeight]);
 
   return (
     <MyContext.Provider

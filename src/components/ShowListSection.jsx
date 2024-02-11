@@ -10,7 +10,7 @@ function ShowList() {
     useShowListHook();
 
   return (
-    <section className=" border-t p-4 bg-white overflow-y-auto flex flex-col gap-2 h-full">
+    <section className=" border-t p-4 bg-white overflow-y-auto flex flex-col gap-2 h-full max-[350px]:text-sm">
       <ShowFilter />
       {todos.length === 0 ? (
         <div className="flex justify-center items-center h-full">

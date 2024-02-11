@@ -22,7 +22,7 @@ function Filter() {
   } = useFilterHook();
 
   return (
-    <section className="flex justify-between items-center gap-4 px-4 pb-4 bg-white ">
+    <section className="flex justify-between items-center gap-4 px-4 pt-4 bg-white max-[450px]:flex-col max-[350px]:text-sm">
       <div className="flex justify-between items-center gap-2">
         <h1 className="font-semibold">Completed:</h1>
         <p className="mr-3 font-semibold text-green-600">
@@ -33,13 +33,13 @@ function Filter() {
           {todos.length === 0 || !atLeastOneIncomplete ? "0" : incompleteCount}
         </p>
       </div>
-      <div className="flex gap-2 justify-center items-center">
+      <div className="flex gap-2 justify-center items-center max-[450px]:w-full">
         <label className="font-semibold" htmlFor="filter">
           Filter:
         </label>
         <select
           id="priority"
-          className="border-2 text-white p-2 cursor-pointer bg-green-600"
+          className="border-2 text-white p-2 cursor-pointer bg-green-600 max-[450px]:w-full max-[450px]:text-center"
           value={filter}
           onChange={handleSelectChange}
         >
