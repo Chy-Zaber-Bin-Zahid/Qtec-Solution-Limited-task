@@ -1,13 +1,39 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Creating context api
 const MyContext = createContext();
 
 function MyProvider({ children }) {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
   const [filter, setFilter] = useState("All");
   const [edit, setEdit] = useState(false);
   const [editId, setEditId] = useState("");
+
+  // Fetch tasks from local storage
+  const fetchTodosFromLocalStorage = () => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  };
+
+  // Save tasks to local storage
+  const saveTodosToLocalStorage = (updatedTodos) => {
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  };
+
+  // Load todos from local storage
+  useEffect(() => {
+    fetchTodosFromLocalStorage();
+  }, []);
+
+  // Update local storage
+  useEffect(() => {
+    saveTodosToLocalStorage(todos);
+  }, [todos]);
 
   return (
     <MyContext.Provider
