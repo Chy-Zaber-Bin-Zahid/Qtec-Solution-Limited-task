@@ -1,10 +1,15 @@
-import { useState } from "react";
 import { useMyContext } from "../MyContext";
 
 function useEditHook() {
-  const [inputText, setInputText] = useState("");
-
-  const { editId, setEditId, setEdit, todos, setTodos } = useMyContext();
+  const {
+    editId,
+    setEditId,
+    setEdit,
+    todos,
+    setTodos,
+    inputText,
+    setInputText,
+  } = useMyContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +28,7 @@ function useEditHook() {
     setInputText("");
   };
 
-  return { inputText, setInputText, handleSubmit, handleClose };
+  return { handleSubmit, handleClose };
 }
 
 export default useEditHook;

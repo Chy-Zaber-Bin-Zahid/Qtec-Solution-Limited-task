@@ -1,8 +1,15 @@
 import { useMyContext } from "../MyContext";
 
 function useShowListHook() {
-  const { todos, setTodos, filter, setEdit, setEditId, searchQuery } =
-    useMyContext();
+  const {
+    todos,
+    setTodos,
+    filter,
+    setEdit,
+    setEditId,
+    searchQuery,
+    setInputText,
+  } = useMyContext();
 
   const queryTodos = todos.filter((todo) =>
     todo.text.toLowerCase().includes(searchQuery.toLowerCase())
@@ -39,6 +46,8 @@ function useShowListHook() {
   const handleEditTodo = (id) => {
     setEditId(id);
     setEdit(true);
+    const todoTextArray = todos.filter((todo) => todo.id === id);
+    setInputText(todoTextArray[0].text);
   };
 
   // Filtering todo
@@ -60,7 +69,7 @@ function useShowListHook() {
     .filter(
       (todo) => todo.text.toLowerCase().includes(searchQuery.toLowerCase()) //Search filter
     );
-  console.log(queryTodos, searchQuery);
+
   return {
     toggleTodoCompletion,
     sortedTodos,

@@ -4,8 +4,8 @@ import { useMyContext } from "../MyContext";
 import useEditHook from "../hooks/editHook";
 
 function Edit() {
-  const { edit } = useMyContext();
-  const { inputText, setInputText, handleSubmit, handleClose } = useEditHook();
+  const { inputText, setInputText, edit } = useMyContext();
+  const { handleSubmit, handleClose } = useEditHook();
 
   return (
     <>

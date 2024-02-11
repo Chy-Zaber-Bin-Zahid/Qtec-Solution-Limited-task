@@ -12,6 +12,7 @@ function MyProvider({ children }) {
   const [edit, setEdit] = useState(false);
   const [editId, setEditId] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [inputText, setInputText] = useState("");
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   // Fetch tasks from local storage
@@ -63,6 +64,8 @@ function MyProvider({ children }) {
         setEditId,
         searchQuery,
         setSearchQuery,
+        inputText,
+        setInputText,
       }}
     >
       {children}
