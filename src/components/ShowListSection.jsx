@@ -14,7 +14,9 @@ function ShowList() {
       <ShowFilter />
       {todos.length === 0 && searchQuery === "" ? (
         <div className="flex justify-center items-center h-full">
-          <p className="text-gray-400 text-2xl ">No todos!</p>
+          <p className="text-gray-400 text-2xl max-[400px]:text-lg max-[300px]:text-sm">
+            No todos!
+          </p>
         </div>
       ) : filter === "All" ? (
         sortedTodos.map((todo, index) => (
