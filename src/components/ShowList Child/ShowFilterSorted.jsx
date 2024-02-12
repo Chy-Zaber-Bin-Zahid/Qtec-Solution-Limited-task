@@ -22,7 +22,7 @@ const ShowFilterSorted = ({ todo, toggleTodoCompletion, handleDeleteTodo }) => {
           checked={todo.completed}
           onChange={() => toggleTodoCompletion(todo.id)}
         />
-        <p className="">{todo.text}</p>{" "}
+        <p className={`${todo.completed && 'line-through'}`}>{todo.text}</p>{" "}
       </div>
       <FaRegEdit
         onClick={() => handleEditTodo(todo.id)}
